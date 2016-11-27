@@ -1,0 +1,10 @@
+{
+	"myQuestions":[
+	{"question":"Who invented the wheel?", "answer":"Humonectus"},
+	{"question":"What's the inverntor of linux?", "answer":"Linux Torvalds"},
+	{"question":"What is the name of pink pony?", "answer":"Kurachen"},
+	{"question":"What's the best beer in Poland?", "answer":"Cornelius Bananowy"},
+	{"question":"Who is the biggest metalhear in Brzeziny?", "answer":"Karol Wyka"},
+	{"question":"Who's your pet?", "answer":"Kitten"}
+	]
+}
