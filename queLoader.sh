@@ -18,14 +18,14 @@ randQuestion()
 randAnswers()
 {
   lengthOfAnswersArray=$(echo $json | jq '.myQuestions|length');
-  until [[ $rTrueAnswerIndex -ne $rAnswerIndex ]]; do
+  rAnswerIndex=$(($RANDOM % $lengthOfAnswersArray ));
+  while [[ $rQuestionIndex -eq $rAnswerIndex ]]; do
     rAnswerIndex=$(($RANDOM % $lengthOfAnswersArray ));
-    echo $rAnswerIndex a prawdzwy $rTrueAnswerIndex;
   done
 }
 randPositionOfTrueAnswer()
 {
-  rTrueAnswerIndex=$(($RANDOM % 2));
+  rTrueAnswerIndex=$(($RANDOM % 3));
 }
 checkAnswer()
 {
@@ -62,10 +62,15 @@ main()
     for (( i = 0; i < 3; i++ )); do
       if [[ $rTrueAnswerIndex -eq $i ]]; then
         echo -n $i\);
+        # code that test the anser index
+        #echo -n index odpowiedzi: $rQuestionIndex;
+        #echo -n answer indexu: $rTrueAnswerIndex;
         echo $json | jq ".myQuestions[$rQuestionIndex].answer";
       else
         randAnswers;
         echo -n $i\);
+        # code that tests the false answers index
+        #echo -n index odpowiedzi: $rAnswerIndex;
         echo $json | jq ".myQuestions[$rAnswerIndex].answer";
       fi
     done
